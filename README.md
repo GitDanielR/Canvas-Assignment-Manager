@@ -1,6 +1,6 @@
 # Canvas Assignment Manager
 
-A **Flask-based web application** for managing and organizing Canvas assignments using the Canvas API. Includes a notification system and the ability to save assignment-specific URLs.
+A **Flask-based web application** for managing and organizing Canvas assignments using the Canvas API. Includes a notification system and the ability to save assignment-specific files/URLs. Saved files/URLs can be opened all-at-once using the website or by clicking the notification.
 
 ---
 
