@@ -14,6 +14,29 @@ A **Flask-based web application** for managing and organizing Canvas assignments
 * **Add and save files/URLs** related to each assignment.
 * **Open all files/URLs** associated with an assignment in your browser.
 * **Persistent storage** of assignment files/URLs in a local JSON file.
+* **Shutdown** website after use with the shutdown button shown below so the python process behind the webpage stops.
+
+#### 📸 Screenshots
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/17e62f19-30cf-4d74-b7a4-9d8cdbcae7d4" alt="Home Page" width="80%"><br>
+  <em>Assignment list.</em>
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/c49d51e3-7d2e-4697-8bbc-8f920cb9512e" alt="Assignment Page" width="80%"><br>
+  <em>Assignment view. Includes saved links/files and inputs to add new links/files.</em>
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/30c8da9d-db81-4b0b-939c-65d88a7de5d6" alt="Course/assignment settings" width="80%"><br>
+  <em>Settings that filter courses/assignments displayed and shown in notifications.</em>
+</p>
+
+<p align="center">
+  <img alt="Notification/general settings" src="https://github.com/user-attachments/assets/56e220ab-16d0-4dd4-ad7f-b5a684b1df93" width="80%"><br>
+  <em>Notification settings that impact the visual display of notifications. Also shows canvas domain configuration and date format setting.</em>
+</p>
 
 ### Notification System
 
@@ -22,6 +45,13 @@ A **Flask-based web application** for managing and organizing Canvas assignments
 * Customizable notification messages for each assignment setup.
 * User-configured assignment filtering (from web settings).
 * User-configured notification settings (from web settings).
+
+#### 📸 Screenshots
+
+<p align="center">
+  <img alt="Notification" src="https://github.com/user-attachments/assets/0d75419d-d99c-4871-9520-bbf3adc4273b" width="80%"><br>
+  <em>Notification for upcoming assignment.</em>
+</p>
 
 ---
 
