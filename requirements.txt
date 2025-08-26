@@ -1,0 +1,4 @@
+flask
+win10toast_click
+macos-notifications
+plyer

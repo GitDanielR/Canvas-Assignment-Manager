@@ -1,0 +1,218 @@
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background: #f6f8fa;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    padding: 32px 40px 40px 40px;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 2.2rem;
+    margin-bottom: 28px;
+    color: #222;
+    letter-spacing: 1px;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+thead tr {
+    background: #f0f4f8;
+}
+th, td {
+    padding: 16px 14px;
+    text-align: left;
+}
+th {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #333;
+    border-bottom: 2px solid #e5e9f2;
+    letter-spacing: 0.5px;
+}
+tbody tr {
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.2s;
+}
+tbody tr:hover {
+    background: #f9fafb;
+}
+
+.assignment-row {
+    cursor: pointer;
+}
+.assignment-row td {
+    font-size: 1rem;
+    color: #444;
+    vertical-align: middle;
+}
+
+a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.shutdown-btn {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 14px 36px;
+    border-radius: 6px;
+    font-size: 1.08rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 2px 8px rgba(231,76,60,0.08);
+    transition: background 0.2s, box-shadow 0.2s;
+}
+.shutdown-btn:hover,
+.shutdown-btn:focus {
+    background-color: #c0392b;
+    box-shadow: 0 4px 16px rgba(231,76,60,0.16);
+    outline: none;
+}
+
+@media (max-width: 700px) {
+    .container {
+        padding: 16px 4px;
+    }
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+    thead {
+        display: none;
+    }
+    tr {
+        margin-bottom: 18px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+    td {
+        padding: 12px 10px;
+        position: relative;
+    }
+    td:before {
+        content: attr(data-label);
+        font-weight: 700;
+        color: #888;
+        display: block;
+        margin-bottom: 6px;
+        font-size: 0.97rem;
+    }
+}
+
+.settings-btn {
+    background: #fff;
+    border: 2px solid #3498db;
+    color: #3498db;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(52,152,219,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.settings-btn:hover, .settings-btn:focus {
+    background: #3498db;
+    color: #fff;
+    outline: none;
+}
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.25);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal-content {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    padding: 32px 36px 28px 36px;
+    min-width: 340px;
+    max-width: 95vw;
+    position: relative;
+    max-height: 90vh; 
+    overflow-y: auto; 
+}
+.close-modal {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    font-size: 2rem;
+    color: #888;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.close-modal:hover, .close-modal:focus {
+    color: #e74c3c;
+}
+#settings-form label {
+    display: block;
+    margin-bottom: 14px;
+    font-size: 1rem;
+    color: #333;
+}
+#settings-form input[type="text"],
+#settings-form input[type="number"],
+#settings-form select {
+    width: 100%;
+    padding: 7px 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-top: 4px;
+    margin-bottom: 2px;
+    background: #f9fafb;
+    transition: border 0.2s;
+}
+#settings-form input[type="text"]:focus,
+#settings-form input[type="number"]:focus,
+#settings-form select:focus {
+    border: 1.5px solid #3498db;
+    outline: none;
+}
+.save-settings-btn {
+    background: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 32px;
+    font-size: 1.08rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 18px;
+    box-shadow: 0 2px 8px rgba(52,152,219,0.08);
+    transition: background 0.2s, box-shadow 0.2s;
+}
+.save-settings-btn:hover, .save-settings-btn:focus {
+    background: #217dbb;
+    box-shadow: 0 4px 16px rgba(52,152,219,0.16);
+    outline: none;
+}

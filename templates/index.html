@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas Assignment Manager</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/toast.js') }}"></script>
+    <script>
+        const assignments = {{ assignments | tojson }};
+        const courses = {{ courses | tojson}};
+        let courseConfig = {{ course_config | tojson }};
+        let notifConfig = {{ notif_config | tojson }};  
+        let generalConfig = {{ general_config | tojson }};
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h1>Assignments</h1>
+            <button id="settings-btn" class="settings-btn" title="Settings">&#9881;</button>
+        </div>
+        <table id="assignments_table">
+            <thead>
+                <tr>
+                    <th data-sort="course.name">Course</th>
+                    <th data-sort="name">Name</th>
+                    <th data-sort="due_date">Due Date</th>
+                    <th>Links/Files</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for assignment in assignments %}
+                <tr class="assignment-row" data-id="{{ assignment.id }}">
+                    <td>{{ assignment.course_name }}</td>
+                    <td>{{ assignment.name }}</td>
+                    <td>{{ assignment.due_date }}</td>
+                    <td class="assignment-open-all">Open All</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <form action="/shutdown" method="post" style="text-align:center; margin: 24px 0px;">
+        <button type="submit" class="shutdown-btn">Shutdown</button>
+    </form>
+
+    <div id="settings-modal" class="modal-overlay" style="display:none;">
+        <div class="modal-content">
+            <span class="close-modal" id="close-settings-modal">&times;</span>
+            <h2>Settings</h2>
+            <form id="settings-form">
+                <h3>Course Config</h3>
+                <label>
+                    Assignment Outlook Distance:
+                    <select name="assignment_outlook_distance" id="assignment_outlook_distance">
+                        <option value="{{ OutlookDistance.UNLIMITED }}">Unlimited</option>
+                        <option value="{{ OutlookDistance.DAY }}">Day</option>
+                        <option value="{{ OutlookDistance.WEEK }}">Week</option>
+                        <option value="{{ OutlookDistance.TWO_WEEKS }}">Two Weeks</option>
+                        <option value="{{ OutlookDistance.END_OF_WEEK }}">End of Week</option>
+                    </select>
+                </label>
+                <label>
+                    <input type="checkbox" name="include_undated_assignments" id="include_undated_assignments">
+                    Include Undated Assignments
+                </label>
+                <label>
+                    <input type="checkbox" name="include_overdue_unsubmitted_assignments" id="include_overdue_unsubmitted_assignments">
+                    Include Overdue Unsubmitted Assignments
+                </label>
+                <label>
+                    <input type="checkbox" name="include_unsubmittable_assignments" id="include_unsubmittable_assignments">
+                    Include Unsubmittable Assignments
+                </label>
+                <label>
+                    <input type="checkbox" name="include_submitted_assignments" id="include_submitted_assignments">
+                    Include Submitted Assignments
+                </label>
+                <label>
+                    <input type="checkbox" name="using_desired_courses" id="using_desired_courses">
+                    Use Only Desired Courses
+                </label>
+                <label>
+                    Desired Courses (comma separated):
+                    <input type="text" name="desired_courses" id="desired_courses">
+                    <div style="margin-top: 6px; font-size: 0.97em; color: #555;">
+                        Possible courses:
+                        <ul style="margin: 6px 0 0 18px; padding: 0; list-style: disc;">
+                            {% for course in courses %}
+                                <li>{{ course.name }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </label>
+                <hr>
+                <h3>Notification Config</h3>
+                <label>
+                    App Icon Path:
+                    <input type="text" name="notification_app_icon" id="notification_app_icon" disabled>
+                </label>
+                <label>
+                    App Name:
+                    <input type="text" name="notification_app_name" id="notification_app_name">
+                </label>
+                <label>
+                    Duration (seconds):
+                    <input type="number" name="notification_duration_seconds" id="notification_duration_seconds" min="1" required>
+                </label>
+                <hr>
+                <h3>General Config</h3>
+                <label>
+                    Canvas Domain:
+                    <input type="text" name="canvas_domain" id="canvas_domain" required>
+                </label>
+                <label>
+                    Due Date Time Format:
+                    <input type="text" name="due_date_time_format" id="due_date_time_format">
+                </label>
+                <button type="submit" class="save-settings-btn">Save Settings</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

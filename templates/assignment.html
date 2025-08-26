@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ assignment.name }} - Assignment Details</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/assignment.css') }}">
+    <script src="{{ url_for('static', filename='js/assignment.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/toast.js') }}"></script>
+    <script>
+        const assignmentId = {{ assignment.id }};
+    </script>
+</head>
+<body style="background: #f6f8fa;">
+<div class="assignment-details-container">
+    <div class="assignment-details-header">
+        <h1>{{ assignment.name }}</h1>
+        <a href="{{ url_for('index') }}" class="home-btn">Home</a>
+    </div>
+    <div class="assignment-meta">
+        <p><strong>Course:</strong> {{ assignment.course_name }}</p>
+        <p><strong>Due Date:</strong> {{ assignment.due_date }}</p>
+    </div>
+
+    <div class="related-links-section">
+        <h2>Related Links</h2>
+        <ul id="links-list">
+            {% for link in assignment.related_links_files %}
+            <li class="link-item">
+                <span class="link-text">{{ link }}</span>
+                <button type="button" class="remove-link-btn" onclick="removeLink(this)">Remove</button>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <form id="add-link-form" class="add-related" onsubmit="addLink(event)">
+            <input id="new-link" class="new-related" type="url" placeholder="Add new link..." required>
+            <button type="submit">Add Link</button>
+        </form>
+        <form id="add-file-form" class="add-related" onsubmit="addFile(event)">
+            <input id="new-file" class="new-related" placeholder="Add new file path..." required>
+            <button type="submit">Add File</buttom>
+        </form>
+    </div>
+
+    <button id="save-btn" onclick="saveLinks()">Save Links</button>
+</div>
+</body>
+</html>
