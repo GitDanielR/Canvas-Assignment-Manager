@@ -8,18 +8,20 @@ A **Flask-based web application** for managing and organizing Canvas assignments
 
 ### Assignment Website
 
-* **View all Canvas assignments** in a clean, searchable table.
+* **View all Canvas assignments** in a clean table.
+* **Filter assignments** by upcoming, overdue, class-specific and more.
 * **Click on an assignment** to view its details.
-* **Add and save URLs** related to each assignment.
-* **Open all URLs** associated with an assignment in your browser.
-* **Persistent storage** of assignment URLs in a local JSON file.
+* **Add and save files/URLs** related to each assignment.
+* **Open all files/URLs** associated with an assignment in your browser.
+* **Persistent storage** of assignment files/URLs in a local JSON file.
 
 ### Notification System
 
 * **Background notifications** for assignments due soon.
 * Configurable to run automatically on system startup.
 * Customizable notification messages for each assignment setup.
-* Customizable notification settings to filter assignments.
+* User-configured assignment filtering (from web settings).
+* User-configured notification settings (from web settings).
 
 ---
 
@@ -45,7 +47,7 @@ CANVAS_ACCESS_TOKEN=YOUR_TOKEN
 pip install -r requirements.txt
 ```
 
-> Required packages include `Flask` and desktop notification library.
+> Required packages include `Flask` and operating system specific notification systems.
 
 ---
 
@@ -59,7 +61,7 @@ python website_main.py
 
 * Opens a browser window at `http://127.0.0.1:5000/`.
 * Displays all assignments in a table.
-* Click an assignment to view details and manage URLs.
+* Click an assignment to view details and manage files/URLs.
 
 ### Notification Mode
 
@@ -67,7 +69,7 @@ python website_main.py
 python notifications_main.py
 ```
 
-* Sends desktop notifications for upcoming assignment deadlines. Clicking notifications opens assignment's related URLs.
+* Sends desktop notifications for upcoming assignment deadlines. Clicking notifications opens assignment's related files/URLs.
 
 ---
 
