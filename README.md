@@ -11,7 +11,7 @@ A **Flask-based web application** for managing and organizing Canvas assignments
 * **View all Canvas assignments** in a clean table.
 * **Filter assignments** by upcoming, overdue, class-specific and more.
 * **Click on an assignment** to view its details.
-* **Add and save files/URLs** related to each assignment.
+* **Add and save files/URLs** related to each assignment (assignments include their canvas link by default).
 * **Open all files/URLs** associated with an assignment in your browser.
 * **Persistent storage** of assignment files/URLs in a local JSON file.
 * **Shutdown** website after use with the shutdown button shown below so the python process behind the webpage stops.
