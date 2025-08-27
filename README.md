@@ -149,7 +149,7 @@ Locate the executables in the /dist folder. Run those executables to start your 
 
 ## Notes
 
-* **Local JSON storage:** All assignment-specific URLs are stored locally. This allows persistence across sessions but is machine-specific.
+* **Local JSON storage:** All assignment-specific files/URLs are stored locally. This allows persistence across sessions in both the website and notifications.
 * **Browser behavior:** Opening URLs uses Python’s `webbrowser` module. Default browser may depend on system configuration.
 
 ---
